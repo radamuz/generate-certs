@@ -1,8 +1,8 @@
 #### Desplegar contenedor para crear los certificados necesarios:
 ```bash
 docker run -v $PWD/certs:/certs \
-  -e SSL_SUBJECT=... \ # host.domain.local
-  -e SSL_DNS=... \ # host.domain.local
+  -e SSL_SUBJECT=... \ # hostRancher.domain.local
+  -e SSL_DNS=... \ # hostRancher.domain.local
   -e SSL_IP=... \ # IP de servidor Rancher 
   -e CA_EXPIRE=... \ # Días en los que expira la Autoridad Certificadora
   -e SSL_EXPIRE=60 \ # Días en los que expira el SSL
