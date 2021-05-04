@@ -1,16 +1,16 @@
 #### Desplegar contenedor para crear los certificados necesarios:
-```
+```bash
 docker run -v $PWD/certs:/certs \
-  -e SSL_SUBJECT=... \
-  -e SSL_DNS=... \
-  -e SSL_IP=... \
-  -e CA_EXPIRE=... \
-  -e SSL_EXPIRE=... \
+  -e SSL_SUBJECT=... \ # host.domain.local
+  -e SSL_DNS=... \ # host.domain.local
+  -e SSL_IP=... \ # IP de servidor Rancher 
+  -e CA_EXPIRE=... \ # Días en los que expira la Autoridad Certificadora
+  -e SSL_EXPIRE=60 \ # Días en los que expira el SSL
   superseb/omgwtfssl
 ```
 
 #### Desplegar rancher con los certificados creados anteriormente:
-```
+```bash
 docker run -d \
   --restart=unless-stopped \
   -p 81:80 -p 444:443 \
